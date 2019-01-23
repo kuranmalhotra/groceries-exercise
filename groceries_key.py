@@ -1,4 +1,5 @@
-# groceries.py
+import code
+import operator
 
 products = [
     {"id":1, "name": "Chocolate Sandwich Cookies", "department": "snacks", "aisle": "cookies cakes", "price": 3.50},
@@ -21,56 +22,44 @@ products = [
     {"id":18, "name": "Pizza for One Suprema Frozen Pizza", "department": "frozen", "aisle": "frozen pizza", "price": 12.50},
     {"id":19, "name": "Gluten Free Quinoa Three Cheese & Mushroom Blend", "department": "dry goods pasta", "aisle": "grains rice dried goods", "price": 3.99},
     {"id":20, "name": "Pomegranate Cranberry & Aloe Vera Enrich Drink", "department": "beverages", "aisle": "juice nectars", "price": 4.25}
-] # based on data from Instacart: https://www.instacart.com/datasets/grocery-shopping-2017
+]
 
-print(products)
-
-# TODO: write some Python code here to produce the desired output
-
-#Checkpoint 1:
-print("")
-print("--------------")
-print("There are " + str(len(products)) + " products")
+#
+# PRODUCTS
+#
 
 print("--------------")
-print("")
+print("THERE ARE " + str(len(products)) + " PRODUCTS:")
 
-#Checkpoint 2:
-print(products[0]["name"])
-
-print("")
-print("--------------")
-
-#Checkpoint 3:
-for product in products:
-    print(product["name"])
-
-print("")
-print("--------------")
-
-#Checkpoint 4:
-def product_name(p):
-    return p["name"]
-
-products = sorted(products, key=product_name)
+products = sorted(products, key=operator.itemgetter("name"))
 
 for product in products:
-    print(product["name"])
+    price_usd = ' (${0:.2f})'.format(product["price"])
+    print(" + " + product["name"] + str(price_usd))
 
-print("")
+#
+# DEPARTMENTS
+#
+
+def department_name(product):
+    return product["department"]
+
+departments = map(department_name, products)
+
+departments = list(departments)
+
+departments = set(departments) # remove duplicate values
+departments = list(departments) # convert back to a list
+
+departments.sort() # this is mutating
+
 print("--------------")
+print("THERE ARE " + str(len(departments)) + " DEPARTMENTS:")
 
-print(format)
+def get_products(department_name):
+    return [product for product in products if product["department"] == department_name] # list comprehension for the win. so helpful.
 
-#Checkpoint 5:
-for product in products:
-   print("- " + product["name"] + " ($" + str(round(product["price"], 2)) + ")")
-
-for product in products:
-    print(product["department"])
-
-print("--------------")
-print("THERE ARE 20 PRODUCTS")
-print("--------------")
-
-
+for department in departments:
+    department_products = get_products(department)
+    product_count = len(department_products)
+    print(" + " + department.title() + " (" + str(product_count) + " products)")
