@@ -27,12 +27,21 @@ print(products)
 
 # TODO: write some Python code here to produce the desired output
 
+#Part 1
+
+print("--------------")
+print("THERE ARE " + str(len(products)) + " PRODUCTS:")
+print("--------------")
+
+def product_name(p):
+    return p["name"]
+
 products = sorted(products, key=product_name)
 
 for product in products:
     price_usd = ' (${0:.2f})'.format(product["price"])
-   print("- " + product["name"] + " ($" + str(price_usd)) + ")"
+    print(" • " + product["name"] + str(price_usd))
 
-for product in products:
-    print(product["department"])
+#Part 2
+
 
