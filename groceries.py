@@ -27,7 +27,6 @@ print(products)
 
 # TODO: write some Python code here to produce the desired output
 
-#Checkpoint 1:
 print("")
 print("--------------")
 print("There are " + str(len(products)) + " products")
@@ -35,42 +34,11 @@ print("There are " + str(len(products)) + " products")
 print("--------------")
 print("")
 
-#Checkpoint 2:
-print(products[0]["name"])
+products = sorted(products, key=operator.itemgetter("name"))
 
+for product in products:
+    price_usd = ' (${0:.2f})'.format(product["price"])
+    print(" + " + product["name"] + str(price_usd))
+
+print("--------------")
 print("")
-print("--------------")
-
-#Checkpoint 3:
-for product in products:
-    print(product["name"])
-
-print("")
-print("--------------")
-
-#Checkpoint 4:
-def product_name(p):
-    return p["name"]
-
-products = sorted(products, key=product_name)
-
-for product in products:
-    print(product["name"])
-
-print("")
-print("--------------")
-
-print(format)
-
-#Checkpoint 5:
-for product in products:
-   print("- " + product["name"] + " ($" + str(round(product["price"], 2)) + ")")
-
-for product in products:
-    print(product["department"])
-
-print("--------------")
-print("THERE ARE 20 PRODUCTS")
-print("--------------")
-
-
