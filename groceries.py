@@ -59,3 +59,10 @@ for product in products:
 
 print("")
 print("--------------")
+
+print(format)
+
+#Checkpoint 5:
+for product in products:
+   print("- " + product["name"] + " ($" + str(round(product["price"], 2)) + ")")
+
