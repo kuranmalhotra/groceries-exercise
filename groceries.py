@@ -37,9 +37,22 @@ def product_name(p):
 products = sorted(products, key=product_name)
 
 for product in products:
-    price_usd = ' (${0:.2f})'.format(product["price"])
-    print(" • " + product["name"] + str(price_usd))
+    price_usd = "{0:.2f}".format(product["price"])
+    print(" • " + product["name"] + " ($" + str(price_usd) + ")")
+print()
 
 #Part 2
+
+def product_dept(q):
+    return q["department"]
+
+departments = []
+
+for product in products 
+    if product["department"] 
+
+print("--------------")
+print("THERE ARE " + str(len(departments)) + " DEPARTMENTS:")
+print("--------------")
 
 
