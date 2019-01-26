@@ -62,8 +62,10 @@ for dep in departments:
     counter = 0
     for product in products:
             if product["department"]==dep:
-                counter = counter + 1 
-        
-
-
-
+                counter = counter + 1
+    if counter == 1: 
+        print("• " + dep.title() + " (" + str(counter) + " product)")
+    if counter > 1: 
+        print("• " + dep.title() + " (" + str(counter) + " products)")
+    if counter < 1: 
+        print("• " + dep.title() + " (" + str(counter) + " products)")
