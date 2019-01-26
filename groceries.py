@@ -48,11 +48,18 @@ def product_dept(q):
 
 departments = []
 
-for product in products 
-    if product["department"] 
+for p in products: 
+    if p["department"] not in departments:
+        departments.append(p["department"])
 
 print("--------------")
 print("THERE ARE " + str(len(departments)) + " DEPARTMENTS:")
 print("--------------")
+
+print (departments)
+
+departments_sorted = departments.sort()
+
+print(departments_sorted)
 
 
