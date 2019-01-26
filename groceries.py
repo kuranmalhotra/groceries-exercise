@@ -52,13 +52,18 @@ for p in products:
     if p["department"] not in departments:
         departments.append(p["department"])
 
-unique_departments = list(set(departments))
-
-print unique_departments
+departments = sorted(departments)
 
 print("--------------")
 print("THERE ARE " + str(len(departments)) + " DEPARTMENTS:")
 print("--------------")
+
+for dep in departments:
+    counter = 0
+    for product in products:
+            if product["department"]==dep:
+                counter = counter + 1 
+        
 
 
 
