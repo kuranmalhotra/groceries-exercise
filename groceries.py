@@ -43,8 +43,8 @@ print()
 
 #Part 2
 
-def product_dept(q):
-    return q["department"]
+def product_dept(p):
+    return p["department"]
 
 departments = []
 
